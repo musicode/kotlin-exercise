@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.musicode.seekbarpercentage.MainActivity">
+
+    <EditText
+        android:id="@+id/priceEditText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="8dp"
+        android:textAlignment="textEnd"
+        android:textSize="30sp"
+        android:ems="10"
+        android:hint="$0.00"
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="10%"/>
+
+    <TextView
+        android:id="@+id/discountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="折扣："
+        app:layout_constraintStart_toStartOf="@id/priceEditText"
+        app:layout_constraintTop_toBottomOf="@id/priceEditText"/>
+
+    <TextView
+        android:id="@+id/discountValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="10"
+        app:layout_constraintEnd_toEndOf="@id/priceEditText"
+        app:layout_constraintTop_toTopOf="@id/discountLabel"/>
+
+    <TextView
+        android:id="@+id/priceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="折扣后价格："
+        app:layout_constraintStart_toStartOf="@id/priceEditText"
+        app:layout_constraintTop_toBottomOf="@id/discountLabel"/>
+
+    <TextView
+        android:id="@+id/priceValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="100.0"
+        app:layout_constraintEnd_toEndOf="@id/priceEditText"
+        app:layout_constraintTop_toTopOf="@id/priceLabel"/>
+
+    <SeekBar
+        android:id="@+id/discountSeekBar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:min="0"
+        android:max="100"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/priceLabel"/>
+
+</android.support.constraint.ConstraintLayout>
