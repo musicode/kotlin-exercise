@@ -1,10 +1,13 @@
 package com.musicode.weather.data.db
 
-import com.musicode.weather.domain.ForecastDataMapper
+import com.musicode.weather.data.server.ServerDataMapper
+
 
 class ForecastDb {
 
     val forecastDbHelper: ForecastDbHelper = ForecastDbHelper.instance
 
-    val dataMapper: ForecastDataMapper = ForecastDataMapper()
+    val dataMapper: ServerDataMapper = ServerDataMapper()
+
+
 }

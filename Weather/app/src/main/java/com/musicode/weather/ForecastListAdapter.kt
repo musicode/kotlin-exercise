@@ -5,12 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import com.musicode.weather.domain.Forecast
-import com.musicode.weather.domain.ForecastList
+import com.musicode.weather.domain.model.Forecast
+import com.musicode.weather.domain.model.ForecastList
 import com.squareup.picasso.Picasso
-import org.jetbrains.anko.find
 
 import kotlinx.android.synthetic.main.item_forecast.view.*
 
@@ -42,7 +39,7 @@ class ForecastListAdapter(
             with (forecast) {
                 Picasso.with(itemView.ctx).load(iconUrl).into(itemView.icon)
 
-                itemView.date.text = date
+                itemView.date.text = date.toString()
                 itemView.description.text = description
 
                 itemView.maxTemperature.text = high.toString()

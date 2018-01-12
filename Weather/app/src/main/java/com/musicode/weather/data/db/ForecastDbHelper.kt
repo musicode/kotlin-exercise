@@ -1,10 +1,12 @@
 package com.musicode.weather.data.db
 
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
 import com.musicode.weather.App
-import org.jetbrains.anko.db.*
+import com.musicode.weather.data.db.schema.CityForecastTable
+import com.musicode.weather.data.db.schema.DayForecastTable
 
-class ForecastDbHelper : ManagedSQLiteOpenHelper(App.instance, ForecastDbHelper.DB_NAME, null, ForecastDbHelper.DB_VERSION) {
+class ForecastDbHelper : SQLiteOpenHelper(App.instance, ForecastDbHelper.DB_NAME, null, ForecastDbHelper.DB_VERSION) {
 
     companion object {
 
@@ -17,29 +19,29 @@ class ForecastDbHelper : ManagedSQLiteOpenHelper(App.instance, ForecastDbHelper.
         }
     }
 
-    override fun onCreate(db: SQLiteDatabase) {
-        db.createTable(
-                CityForecastTable.NAME, true,
-                CityForecastTable.ID to INTEGER + PRIMARY_KEY,
-                CityForecastTable.CITY to TEXT,
-                CityForecastTable.COUNTRY to TEXT
+    override fun onCreate(db: SQLiteDatabase?) {
+
+        db?.execSQL("create table ${CityForecastTable.NAME} (" +
+                "${CityForecastTable.ID} integer primary key autoincrement," +
+                "${CityForecastTable.CITY}," +
+                "${CityForecastTable.COUNTRY}" +
+                ")"
         )
 
-        db.createTable(
-                DayForecastTable.NAME, true,
-                DayForecastTable.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
-                DayForecastTable.DATE to INTEGER,
-                DayForecastTable.DESCRIPTION to TEXT,
-                DayForecastTable.HIGH to INTEGER,
-                DayForecastTable.LOW to INTEGER,
-                DayForecastTable.ICON_URL to TEXT,
-                DayForecastTable.CITY_ID to  INTEGER
+        db?.execSQL("CREATE TABLE ${DayForecastTable.NAME} (" +
+                "${DayForecastTable.ID} integer primary key autoincrement," +
+                "${DayForecastTable.DATE}," +
+                "${DayForecastTable.DESCRIPTION}" +
+                "${DayForecastTable.HIGH}," +
+                "${DayForecastTable.LOW}," +
+                "${DayForecastTable.ICON_URL}," +
+                "${DayForecastTable.CITY_ID}" +
+                ")"
         )
+
     }
 
-    override fun onUpgrade(db: SQLiteDatabase, p1: Int, p2: Int) {
-        db.dropTable(CityForecastTable.NAME, true)
-        db.dropTable(DayForecastTable.NAME, true)
-        onCreate(db)
+    override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
+
     }
 }

@@ -1,4 +1,4 @@
-package com.musicode.weather.data.db
+package com.musicode.weather.data.db.model
 
 class DayForecast(var map: MutableMap<String, Any?>) {
 

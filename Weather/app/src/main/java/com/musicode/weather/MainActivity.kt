@@ -3,7 +3,7 @@ package com.musicode.weather
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import com.musicode.weather.domain.RequestForecastCommand
+import com.musicode.weather.domain.command.RequestForecastCommand
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             val result = RequestForecastCommand("94043").execute()
             uiThread {
                 forecast_list.adapter = ForecastListAdapter(result) {
-                    toast(it.date)
+                    toast(it.date.toString())
                 }
             }
         }

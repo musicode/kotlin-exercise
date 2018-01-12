@@ -1,4 +1,4 @@
-package com.musicode.weather.data.db
+package com.musicode.weather.data.db.schema
 
 object DayForecastTable {
 
