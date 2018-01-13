@@ -23,25 +23,27 @@ class ForecastDbHelper : SQLiteOpenHelper(App.instance, ForecastDbHelper.DB_NAME
 
         db?.execSQL("create table ${CityForecastTable.NAME} (" +
                 "${CityForecastTable.ID} integer primary key autoincrement," +
-                "${CityForecastTable.CITY}," +
-                "${CityForecastTable.COUNTRY}" +
+                "${CityForecastTable.CITY} text," +
+                "${CityForecastTable.COUNTRY} text" +
                 ")"
         )
 
         db?.execSQL("CREATE TABLE ${DayForecastTable.NAME} (" +
                 "${DayForecastTable.ID} integer primary key autoincrement," +
-                "${DayForecastTable.DATE}," +
-                "${DayForecastTable.DESCRIPTION}" +
-                "${DayForecastTable.HIGH}," +
-                "${DayForecastTable.LOW}," +
-                "${DayForecastTable.ICON_URL}," +
-                "${DayForecastTable.CITY_ID}" +
+                "${DayForecastTable.DATE} integer," +
+                "${DayForecastTable.DESCRIPTION} text," +
+                "${DayForecastTable.HIGH} integer," +
+                "${DayForecastTable.LOW} integer," +
+                "${DayForecastTable.ICON_URL} text," +
+                "${DayForecastTable.CITY_ID} integer" +
                 ")"
         )
 
     }
 
-    override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
-
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        db?.execSQL("drop table ${CityForecastTable.NAME}")
+        db?.execSQL("drop table ${DayForecastTable.NAME}")
+        onCreate(db)
     }
 }

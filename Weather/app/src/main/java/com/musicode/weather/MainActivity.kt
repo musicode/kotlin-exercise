@@ -3,6 +3,7 @@ package com.musicode.weather
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import com.musicode.weather.domain.command.RequestForecastCommand
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.doAsync
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         forecast_list.layoutManager = LinearLayoutManager(this)
 
-
+        Log.d("Kotlink", "activity create")
         doAsync {
             val result = RequestForecastCommand("94043").execute()
             uiThread {
