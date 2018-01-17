@@ -1,3 +1,3 @@
 package com.musicode.imagelist
 
-data class Image(val url: String, val title: String)
+data class Image(val resourceId: Int, val title: String)
