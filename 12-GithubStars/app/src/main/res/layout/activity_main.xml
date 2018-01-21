@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.musicode.githubstars.MainActivity">
+
+    <TextView
+        android:id="@+id/text_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:text="User Name"
+        android:textSize="20sp"
+        android:textColor="#999999"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        app:layout_constraintVertical_bias="0.4"/>
+
+    <EditText
+        android:id="@+id/text_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="48dp"
+        android:layout_marginLeft="20dp"
+        android:hint="请输入用户名"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toTopOf="@id/text_label"
+        app:layout_constraintBottom_toBottomOf="@id/text_label"
+        app:layout_constraintStart_toEndOf="@id/text_label"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/search_button"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintTop_toBottomOf="@id/text_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>
